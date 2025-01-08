@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get 'restaurants/index'
   get 'restaurants/show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :restaurants do
-    resources :reviews, only: [:index, :new, :create]
+  resources :restaurants, only: [:index, :show, :new, :create] do
+    resources :reviews, only: [:new, :create]
   end
 
   resources :reviews, only: [:show, :edit, :update, :destroy]
